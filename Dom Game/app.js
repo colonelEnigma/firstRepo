@@ -4,8 +4,7 @@ initFun();
 document.querySelector('.btn-roll').addEventListener('click', function(){
 	
 	if(gamePlaying){
-
-		//random number
+	//random number
 	dice = Math.floor(Math.random()*6) + 1;
 	
 	//Display result
@@ -18,7 +17,6 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
 		//add score
 		roundScore += dice;
 		document.querySelector('#current-' + activePlayer).textContent = roundScore;
-
 	}else{
 		//change active Player
 		nextPlayer();
@@ -33,7 +31,8 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
 
 		//update information
 		document.getElementById('score-' + activePlayer).textContent = scores[activePlayer];
-
+		
+		//get the input from user
 		var input = document.querySelector('.final-score').value;
 		var winScore;
 		if(input){
@@ -48,11 +47,9 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
 			document.querySelector('.player-'+ activePlayer + '-panel').classList.add('winner');
 			document.querySelector('.player-'+ activePlayer + '-panel').classList.remove('active');
 			gamePlaying = false;
-
-
 		}else{
-				//next player
-				nextPlayer();
+			//next player
+			nextPlayer();
 		}
 	}
 
@@ -67,10 +64,8 @@ function nextPlayer(){
 		document.getElementById('current-1').textContent = '0';
 
 		document.querySelector('.player-'+activePlayer+'-panel').classList.add('active');
-		
-
 }
-
+//click on new button and calling initFun method
 document.querySelector('.btn-new').addEventListener('click', initFun);
 
 function initFun(){
