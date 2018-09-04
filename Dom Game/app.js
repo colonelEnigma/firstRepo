@@ -34,8 +34,16 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
 		//update information
 		document.getElementById('score-' + activePlayer).textContent = scores[activePlayer];
 
+		var input = document.querySelector('.final-score').value;
+		var winScore;
+		if(input){
+			winScore = input;
+		}else {
+			winScore = 100;
+		}
+
 		//check if the person won the game
-		if(scores[activePlayer] >= 20){
+		if(scores[activePlayer] >= winScore){
 			document.getElementById('name-'+ activePlayer).textContent = 'Winner!';
 			document.querySelector('.player-'+ activePlayer + '-panel').classList.add('winner');
 			document.querySelector('.player-'+ activePlayer + '-panel').classList.remove('active');
@@ -84,5 +92,6 @@ function initFun(){
 		document.querySelector('.player-0-panel').classList.remove('active');
 		document.querySelector('.player-1-panel').classList.remove('active');
 		document.querySelector('.player-0-panel').classList.add('winner');
+		document.querySelector('.final-score').value = 0;
 
 }
